@@ -16,5 +16,10 @@ namespace QueuingForm
         {
             InitializeComponent();
         }
+
+        private void CashierWindowQueueForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
