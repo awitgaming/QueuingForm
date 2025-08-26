@@ -16,7 +16,7 @@ namespace QueuingForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new QueuingForm());
         }
     }
 }
