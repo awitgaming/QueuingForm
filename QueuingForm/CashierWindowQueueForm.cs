@@ -9,11 +9,14 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static QueuingForm.CashierWindowQueueForm;
 
 namespace QueuingForm
 {
     public partial class CashierWindowQueueForm : Form
     {
+
+        
         public CashierWindowQueueForm()
         {
             InitializeComponent();
@@ -21,6 +24,14 @@ namespace QueuingForm
 
         private void CashierWindowQueueForm_Load(object sender, EventArgs e)
         {
+            listCashierQueue.View = View.List;
+
+            Timer timer = new Timer();
+            timer.Interval = (1 * 1500);
+            timer.Tick += new EventHandler(timer1_Tick);
+            timer.Start();
+
+            DisplayCashierQueue(CashierClass.CashierQueue);
 
         }
 
@@ -38,6 +49,19 @@ namespace QueuingForm
                 listCashierQueue.Items.Add(obj.ToString());
             }
 
+        }
+
+        
+
+        private void listCashierQueue_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        
+       
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DisplayCashierQueue(CashierClass.CashierQueue);
         }
     }
 }
