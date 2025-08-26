@@ -19,6 +19,8 @@ namespace QueuingForm
             InitializeComponent();
             cashier = new CashierClass();
             //nakalimutan kong isama sa pag commit yung step 6 sa step 4 & 5
+            // sorry po nag double commit 
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
