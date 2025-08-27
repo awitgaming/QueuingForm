@@ -16,10 +16,13 @@ namespace QueuingForm
     public partial class CashierWindowQueueForm : Form
     {
 
+        public DisplayQueue display;
         
         public CashierWindowQueueForm()
         {
             InitializeComponent();
+            display = new DisplayQueue();
+
         }
 
         private void CashierWindowQueueForm_Load(object sender, EventArgs e)
@@ -30,8 +33,6 @@ namespace QueuingForm
             timer.Interval = (1 * 1500);
             timer.Tick += new EventHandler(timer1_Tick);
             timer.Start();
-
-            DisplayCashierQueue(CashierClass.CashierQueue);
 
         }
 
@@ -62,6 +63,25 @@ namespace QueuingForm
         private void timer1_Tick(object sender, EventArgs e)
         {
             DisplayCashierQueue(CashierClass.CashierQueue);
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+
+            if (CashierClass.CashierQueue.Count > 0)
+            {
+                var msg = CashierClass.CashierQueue.Dequeue();
+                display.Show();
+                display.DisplayView(msg);
+            }
+            else
+            {
+                MessageBox.Show("Empty Queue",
+                                 "Information",
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Information);
+            }
+
         }
     }
 }
