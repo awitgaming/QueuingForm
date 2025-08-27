@@ -34,6 +34,9 @@ namespace QueuingForm
             timer.Tick += new EventHandler(timer1_Tick);
             timer.Start();
 
+            
+     
+
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
